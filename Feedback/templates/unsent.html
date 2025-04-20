@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Unsent Feedback</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="feedback-wrapper">
+    <div class="feedback-card">
+      <h2>📬 Unsent Feedback</h2>
+      <a href="/resend" class="resend-btn">Retry Sending</a>
+      {% for f in feedbacks %}
+        <div class="feedback-entry">
+          <strong>{{ f[1] }}</strong> - <em>{{ f[4] }}</em>
+          <p>{{ f[2] }}</p>
+        </div>
+      {% else %}
+        <p>No unsent feedback! 🎉</p>
+      {% endfor %}
+    </div>
+  </div>
+</body>
+</html>
